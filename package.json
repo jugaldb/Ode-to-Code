@@ -1,0 +1,35 @@
+{
+  "name": "OdeToCode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jugaldb/Ode-to-Code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jugaldb/Ode-to-Code/issues"
+  },
+  "homepage": "https://github.com/jugaldb/Ode-to-Code#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.0",
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.15",
+    "morgan": "^1.10.0",
+    "shortid": "^2.2.16",
+    "winston": "^3.3.3"
+  }
+}
