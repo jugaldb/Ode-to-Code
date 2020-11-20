@@ -12,8 +12,8 @@ const userSchema = mongoose.Schema({
 		{
 			nutrients: [],
 			ingredients: [],
-      name: { type: String },
-      image: { type: String },
+			name: { type: String },
+			image: { type: String },
 		},
 	],
 	password: { type: String },
