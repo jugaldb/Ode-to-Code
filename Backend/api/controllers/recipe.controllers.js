@@ -38,7 +38,7 @@ const ingredients = async (req, res, next) => {
 };
 
 const nutrition = async (req, res) => {
-	const { recipeId } = req.body;
+	const { recipeId } = req.params;
 	const response = await axios.get(
 		`https://api.spoonacular.com/recipes/${recipeId}/nutritionWidget.json?apiKey=${SPOONACULAR_API_KEY2}`
 	);
@@ -46,7 +46,7 @@ const nutrition = async (req, res) => {
 };
 
 const name = async (req, res) => {
-	const { name } = req.body;
+	const { name } = req.params;
 	const response = await axios.get(
 		`https://api.spoonacular.com/recipes/complexSearch?query=${name}&maxFat=25&number=10&apiKey=${SPOONACULAR_API_KEY3}`
 	);
@@ -54,15 +54,16 @@ const name = async (req, res) => {
 };
 
 const similarRecipes = async (req, res) => {
-	const { recipeId } = req.body;
+  const recipeId = req.params.recipeId;
+  console.log(recipeId)
 	const response = await axios.get(
 		`https://api.spoonacular.com/recipes/${recipeId}/similar?apiKey=${SPOONACULAR_API_KEY4}`
-	);
+  );
 	res.status(200).json(response.data);
 };
 
 const instructions = async (req, res) => {
-	const { recipeId } = req.body;
+	const { recipeId } = req.params;
 	const response = await axios.get(
 		`https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions?apiKey=${SPOONACULAR_API_KEY5}`
 	);
@@ -70,7 +71,7 @@ const instructions = async (req, res) => {
 };
 
 const getInfo = async (req, res) => {
-	const { recipeId } = req.body;
+	const { recipeId } = req.params;
 	const response = await axios.get(
 		`https://api.spoonacular.com/recipes/${recipeId}/information?includeNutrition=true&apiKey=${SPOONACULAR_API_KEY}`
   );
