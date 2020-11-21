@@ -9,5 +9,6 @@ router.get('/name', recipeControllers.name);//NEEDED
 router.get('/similar', recipeControllers.similarRecipes); //NEEDED
 router.get('/info', recipeControllers.getInfo); ///NEEDED
 router.get('/instructions', recipeControllers.instructions);
+router.get('/random', recipeControllers.randomRecipes);
 
 module.exports = router
