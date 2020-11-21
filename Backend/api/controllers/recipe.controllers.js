@@ -23,7 +23,7 @@ const ingredients = async (req, res, next) => {
 
 	for (let i = 0; i < ingredients.length; i++) {
 		if (i == ingredients.length - 1) {
-			ingredientString += ingredients[i] + ",";
+			ingredientString += ingredients[i];
 		} else {
 			ingredientString += ingredients[i] + ",";
 		}
