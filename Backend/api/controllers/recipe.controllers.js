@@ -54,10 +54,11 @@ const name = async (req, res) => {
 };
 
 const similarRecipes = async (req, res) => {
-	const recipeId = req.params.recipeId;
+  const recipeId = req.params.recipeId;
+  console.log(recipeId)
 	const response = await axios.get(
 		`https://api.spoonacular.com/recipes/${recipeId}/similar?apiKey=${SPOONACULAR_API_KEY4}`
-	);
+  );
 	res.status(200).json(response.data);
 };
 
