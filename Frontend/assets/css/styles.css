@@ -31,13 +31,21 @@ body,
     align-items: center;
 }
 
+
 .navbar {
     padding: 0 3rem;
+}
+.nav-search{
+    align-items: flex-start;
+    padding-top: 0.5rem;
 }
 
 .logo {
     font-family: 'Homemade Apple', cursive;
     cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.5rem;
 }
 
 .list-item {
@@ -62,6 +70,10 @@ body,
 .container {
     width: 80vw;
     padding: 10vh 10vw;
+}
+.container-search{
+    width: 60vw;
+    padding: 1rem 20vw 5vh 20vw;
 }
 
 
@@ -128,6 +140,9 @@ h5{
     padding: 0.5rem ;
     padding-bottom: 5vh;
     /*border: 1px ridge #000;*/
+}
+.search-display{
+    padding: 0.5rem;
 }
 
 .form-input {
@@ -244,7 +259,142 @@ box-shadow: 0px 2px 12px -3px rgba(0,0,0,0.69);
     font-size: 1rem;
     margin: 0
 }
+/*Search*/
+.f-i-b{
+    border: 1px  solid grey;
+    border-right: none;
+}
+.select-search{
+    border: 1px solid grey;
+}
+.c-search{
+    padding-top: 15vh;
+    padding-bottom: 5vh;
+}
+.chips-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.chip{
+    background-color: #efefef;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    margin: 0 0.5rem;
+    align-items: center;
+}
+.chip>i{
+    color: grey;
+    margin-left: 0.2rem;
+}
+.chip>i:hover{
+    cursor: pointer;
+    color: black;
+}
 
+
+.search-img{
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+
+.search-c{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff8cd;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+.sc-f>span>h4{
+    margin-top: 0;
+}
+.sc-f{
+    display: flex;
+    justify-content: center;
+}
+
+.sc-l{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+/*Profile page*/
+.overlay{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    height: 150px;
+    width: 150px;
+    align-items: center;
+}
+.profile{
+    text-align: center;
+    padding-top: 15vh;
+}
+.user{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+}
+.edit{
+    z-index: 2;
+}
+.overlay .edit{
+    display: none;
+}
+.overlay:hover .user{
+    opacity: 50%;
+}
+.overlay:hover .edit{
+    display: block;
+}
+.edit:hover{
+    cursor: pointer;
+}
+.p-name{
+    margin-bottom: 0.75rem;
+}
+.p-email{
+    margin: 0;
+}
+.c-s{
+    padding-top: 0;
+}
+.save{
+    margin-right: 1rem;
+}
+/*recipe expanded view*/
+.expand-recipe-img{
+    width: 100vw;
+    height: 400px;
+    object-fit: cover;
+    opacity: 0.4;
+    position: absolute;
+    z-index: -1;
+    border-radius: 10px;
+}
+.recipe-h1{
+    margin-top: 150px;
+    padding-bottom: 1rem;
+}
+.recipe-time{
+    margin-top: 0.5rem;
+}
+.recipe-time, .recipe-like{
+    font-weight: 600;
+}
+.ingredients{
+    padding-top: 2rem;
+}
 @media (max-width: 768px) {
     .search {
         width: 100%;
@@ -258,4 +408,16 @@ box-shadow: 0px 2px 12px -3px rgba(0,0,0,0.69);
     .form-input {
         width: 60%;
     }
+    .search-img{
+        width: 70px;
+        height: 50px;
+    }
+    .search-c{
+        width: 100%;
+    }
+    .container-search{
+        width: 80vw;
+        padding: 1rem 10vw 5vh 10vw;
+    }
+    
 }
