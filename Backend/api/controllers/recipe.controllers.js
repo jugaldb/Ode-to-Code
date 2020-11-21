@@ -54,7 +54,7 @@ const name = async (req, res) => {
 };
 
 const similarRecipes = async (req, res) => {
-	const { recipeId } = req.body;
+	const { recipeId } = req.params;
 	const response = await axios.get(
 		`https://api.spoonacular.com/recipes/${recipeId}/similar?apiKey=${SPOONACULAR_API_KEY4}`
 	);
