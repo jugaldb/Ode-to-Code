@@ -14,7 +14,7 @@ body {
 
 body,
 .form-input,
-.form-element, .read {
+.form-element, .read, .orange-btn, .form-i {
     font-family: 'Raleway', sans-serif;
 }
 
@@ -45,7 +45,7 @@ body,
     padding: 0 0.5rem;
 }
 
-.list-item a {
+.list-item a , .orange-btn{
     text-decoration: none;
     color: #000;
     padding: 0.5rem 1rem;
@@ -61,15 +61,17 @@ body,
 
 .container {
     width: 80vw;
-    padding: 5vh 10vw;
+    padding: 10vh 10vw;
 }
 
+
 .form-search,
-.home, likes {
+.home, .likes, .form {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 
 .home {
     width: 70vw;
@@ -98,9 +100,10 @@ h5{
     font-size: 1rem;
     font-weight: 500;
 }
+
 .read{
-    float: right;
     padding: 0.5rem 1rem;
+    float: right;
     background-color: #ff9642;
     border-radius: 5px;
     font-size: 1rem;
@@ -136,7 +139,7 @@ h5{
 
 .form-input,
 select,
-input[type=submit] {
+.search-submit {
     margin: 0;
     font-size: 1rem;
 }
@@ -150,7 +153,7 @@ input[type=submit]  {
     border: none;
 } 
 
-input[type=submit] {
+.search-submit {
     width: 150px;
     background-color: #ff9642;
     border-radius: 0 5px 5px 0;
@@ -186,12 +189,60 @@ select {
     height: 1rem;
     width: 1rem;
 }
+
 .recipe-img{
     height: 150px;
+    border-radius: 5px;
     width: 100%;
     object-fit: cover;
     margin-top: 1rem;
+    
+}
+/*login*/
+.form{
+    flex-direction: column;
+    
+}
+.login-h1{
+    margin-bottom: 2rem;
+}
+.google-login, .form-i{
+    width: 300px;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.form-i{
+    display: block;
+    font-size: 1rem;
+}
+#login{
+    text-align: center;
+}
+.orange-btn{
+    font-size: 1rem;
+}
+.google{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 1rem;
+}
+.google-login {
+    display: flex;
+   align-items: center;
+text-decoration: none;
+color: #000;
+-webkit-box-shadow: 0px 2px 12px -3px rgba(0,0,0,0.69); 
+box-shadow: 0px 2px 12px -3px rgba(0,0,0,0.69);
+
+}
+
+.google-login>h4{
+    font-size: 1rem;
+    margin: 0
 }
 
 @media (max-width: 768px) {
@@ -200,7 +251,7 @@ select {
     }
 
     select,
-    input[type=submit] {
+    .search-submit {
         width: 20%;
     }
 
