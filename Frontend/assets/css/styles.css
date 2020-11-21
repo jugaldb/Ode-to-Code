@@ -1,0 +1,210 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #ff9642;
+}
+
+body,
+.form-input,
+.form-element, .read {
+    font-family: 'Raleway', sans-serif;
+}
+
+/*navbar*/
+.nav-super {
+    position: fixed;
+    width: 100vw;
+    background-color: #fff;
+}
+
+.card-header, .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    padding: 0 3rem;
+}
+
+.logo {
+    font-family: 'Homemade Apple', cursive;
+    cursor: pointer;
+}
+
+.list-item {
+    display: inline;
+    padding: 0 0.5rem;
+}
+
+.list-item a {
+    text-decoration: none;
+    color: #000;
+    padding: 0.5rem 1rem;
+    background-color: #ff9642;
+    border-radius: 5px;
+}
+
+/*home section*/
+.yellow,
+.footer {
+    background-color: #ffe05d;
+}
+
+.container {
+    width: 80vw;
+    padding: 5vh 10vw;
+}
+
+.form-search,
+.home, likes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home {
+    width: 70vw;
+    padding: 10vh 15vw;
+    text-align: center;
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h4 {
+    margin: 1rem 0 0.5rem 0 ;
+    font-size: 1.3rem;
+}
+h5{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.read{
+    float: right;
+    padding: 0.5rem 1rem;
+    background-color: #ff9642;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #000;
+}
+
+
+.hide {
+    display: none;
+}
+
+.form-search {
+    padding-top: 0;
+}
+
+.search {
+    width: 700px;
+    max-width: 100%;
+    border-radius: 10px;
+    display: flex;
+    padding: 0.5rem ;
+    padding-bottom: 5vh;
+    /*border: 1px ridge #000;*/
+}
+
+.form-input {
+    padding: 1rem 1rem;
+    max-width: 100%;
+    width: 400px;
+    border-radius: 5px 0 0 5px;
+}
+
+.form-input,
+select,
+input[type=submit] {
+    margin: 0;
+    font-size: 1rem;
+}
+.form-input:active,
+select:active,
+input[type=submit]:active, .form-input:focus,
+select:focus,
+input[type=submit]:focus, .form-input,
+select,
+input[type=submit]  {
+    border: none;
+} 
+
+input[type=submit] {
+    width: 150px;
+    background-color: #ff9642;
+    border-radius: 0 5px 5px 0;
+}
+
+select {
+    padding: 1rem;;
+    width: 150px;
+    border-left: 1px solid grey;
+
+}
+
+/*recommendations section*/
+
+.card-container {
+    display: flex;
+    overflow-x: scroll;
+    padding:  1rem 0;
+    
+}
+.card-container::-webkit-scrollbar{
+    display: none;
+}
+.card {
+    min-width: 250px;
+    max-width: 90vw;
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem 1.5rem 1rem;
+    background-color: #fff8cd;
+    margin-right: 1.5rem;
+}
+.like{
+    height: 1rem;
+    width: 1rem;
+}
+.recipe-img{
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    margin-top: 1rem;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .search {
+        width: 100%;
+    }
+
+    select,
+    input[type=submit] {
+        width: 20%;
+    }
+
+    .form-input {
+        width: 60%;
+    }
+}
