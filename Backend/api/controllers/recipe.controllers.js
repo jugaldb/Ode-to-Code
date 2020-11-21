@@ -7,6 +7,7 @@ const JWT = require("jsonwebtoken");
 const User = require("../models/user");
 const axios = require("axios");
 const { isDeepStrictEqual } = require("util");
+const user = require("../models/user");
 // const emailTemplates = require('../emails/email');
 
 sgMail.setApiKey(process.env.SendgridAPIKey);
@@ -81,10 +82,12 @@ const getInfo = async (req, res) => {
     const verified = JWT.verify(token, process.env.JWT_Secret);
     userDetails = verified;
   }
-  const isSaved = false;
-  const isLoggedIn = false;
+  console.log(userDetails)
+  let isSaved = false;
+  let isLoggedIn = false;
   if(userDetails){
     const data = await checkSaved(recipeId, userDetails)
+    console.log(data)
     isSaved = data.isSaved;
     isLoggedIn = data.isLoggedIn
   }
@@ -122,7 +125,7 @@ const saveRecipe = async (req, res) => {
 };
 
 const checkSaved = async (recipeId, userDetails) => {
-  if(userDetails){
+  if(!userDetails){
     return {
       isSaved: false, 
       isLoggedIn: false
