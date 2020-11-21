@@ -85,6 +85,27 @@ const randomRecipes = async(req,res) => {
 
 };
 
+const checkSaved = async(req,res) => {
+
+	const userId = req.user.userId;
+	const user = await User.findById(userId);
+	let isSaved=false;
+	const recipes = user.recipes;
+	const {recipeId} = req.body;
+
+	for(let i=0; i<recipes.length; i++){
+
+		if(recipes[i].recipeId == recipeId){
+			isSaved = true;
+			break;
+		}
+	}
+
+	return isSaved;
+	
+}
+
+
 
 module.exports = {
 	ingredients,
