@@ -62,10 +62,11 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use(cors());
+// app.use(cors());
 
 app.use("/user", userRoutes);
 app.use("/recipe", recipeRoutes);
+app.use(cors());
 
 app.get("/", async (req, res) => {
 	res.send("hi");
