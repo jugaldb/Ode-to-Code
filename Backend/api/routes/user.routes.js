@@ -5,8 +5,6 @@ const router = express.Router();
 
 router.post('/signup', userControllers.userRegister);
 router.post('/login', userControllers.userLogin);
-router.patch('/verifyEmail', userControllers.verifyEmail);
-router.post('/resendVerificationEmail', userControllers.resendVerifyMail);
 router.patch('/forgotPassword', userControllers.forgotPassword);
 router.patch('/resetPassword', userControllers.resetPassword);
 router.patch('/changePassword', checkAuth, userControllers.changePassword)

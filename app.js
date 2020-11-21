@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 require("dotenv").config();
+const morgan = require('morgan')
 const rateLimit = require("express-rate-limit");
 // const passportSetup = require("./Backend/api/config/passport-setup");
 // const passportSetupAdmin = require("./Backend/api/config/passport-setup-admin");
@@ -9,6 +10,8 @@ const rateLimit = require("express-rate-limit");
 const cors = require("cors");
 
 const app = express();
+
+app.use(morgan('combined'))
 
 const userRoutes = require("./Backend/api/routes/user.routes");
 
