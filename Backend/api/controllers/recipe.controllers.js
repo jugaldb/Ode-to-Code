@@ -20,18 +20,18 @@ const SPOONACULAR_API_KEY5 = process.env.SPOONACULAR_API_KEY5;
 
 const ingredients = async (req, res, next) => {
 	const { ingredients } = req.body;
-	console.log(ingredients);
-	let ingredientString = "";
+	// console.log(ingredients);
+	// let ingredientString = "";
 
-	for (let i = 0; i < ingredients.length; i++) {
-		if (i == ingredients.length - 1) {
-			ingredientString += ingredients[i];
-		} else {
-			ingredientString += ingredients[i] + ",";
-		}
-	}
+	// for (let i = 0; i < ingredients.length; i++) {
+	// 	if (i == ingredients.length - 1) {
+	// 		ingredientString += ingredients[i];
+	// 	} else {
+	// 		ingredientString += ingredients[i] + ",";
+	// 	}
+	// }
 	const response = await axios.get(
-		`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientString}&number=5&apiKey=${SPOONACULAR_API_KEY}`,
+		`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=5&apiKey=${SPOONACULAR_API_KEY}`,
 		{}
 	);
 	res.status(200).json(response.data);
