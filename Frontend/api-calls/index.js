@@ -2,13 +2,14 @@ document.addEventListener("DOMContentLoaded", handle);
 
 function handle(){
     var xh = new XMLHttpRequest;
+    /*
     xh.open("GET", "https://ode-to-code.herokuapp.com/recipe/random", true);
     xh.setRequestHeader("Content-Type", "application/json");
     xh.send();
     xh.onload = function () {
         if (this.status == 200){
             var data = JSON.parse(this.responseText);
-            console.log(data)
+            
             for(var i=0; i<data.recipes.length; i++){
                 let e=data.recipes[i];
                 var card=`<div class="card">
@@ -21,15 +22,36 @@ function handle(){
                     </span>
                 </div>
                 <h5>${e.readyInMinutes} mins</h5>  
-                <a href ="" class="read">
-                    Read
+           
+                <a href ="./Frontend/recipe.html" class="read">
+                    Read 
                 </a>
+                    <span class="hide element-id">${e.id}</span>
             </div>`
+            */
            
 
-
+             
             $('#card-after').after(card);
+            let reads=$('.read');
+            $.each(reads, function(key, value){
+                $(value).click(function(e){
+                    
+                   
+                    let id=$(value).parent().children('.element-id').html();
+                    
+                     sessionStorage.setItem("recipeId", id);
+
+                })
+            })
+            
+
+            
+            
             }
+
+
+            
         }
     }
 }

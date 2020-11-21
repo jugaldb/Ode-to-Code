@@ -39,7 +39,7 @@
             <h1 class="recipe-h1">Apple Pie</h1>
             <span class="recipe-like">
                 <img src="./assets/img/heart.png" alt="" class="like">
-                567
+                <span id="#like"> </span>
             </span>
             <h5 class="recipe-time">40mins</h5>
             <a href="" class="orange-btn">
@@ -51,41 +51,21 @@
     <section>
         <div class="container ingredients">
             <h2>Ingredients</h2>
-            <table>
-                <tr>
+            <table id="ingredients">
+                <tr id="ing-after">
                     <th>Ingredient Name</th>
                     <th>Quantity</th>
                 </tr>
+                <!--
                 <tr>
                     <td>Flour</td>
                     <td>
                         250grams
                     </td>
                 </tr>
-                <tr>
-                    <td>Slices Apples</td>
-                    <td>
-                        550grams
-                    </td>
-                </tr>
-                <tr>
-                    <td>Sugar</td>
-                    <td>
-                        3 ounces
-                    </td>
-                </tr>
-                <tr>
-                    <td>Cinnamon</td>
-                    <td>
-                        1 tablespoon
-                    </td>
-                </tr>
-                <tr>
-                    <td>Gibberish</td>
-                    <td>
-                        250grams
-                    </td>
-                </tr>
+                -->
+                
+                
 
             </table>
 
@@ -94,28 +74,11 @@
         <div class="container c-s">
             <h2> Nutritional Value</h2>
             <table>
-                <tr>
+                <tr  id='nutrients'>
                     <th>Item</th>
                     <th>Value</th>
                 </tr>
-                <tr>
-                    <td>Fat</td>
-                    <td>
-                        100gms
-                    </td>
-                </tr>
-                <tr>
-                    <td>Iron</td>
-                    <td>
-                        0.2grams
-                    </td>
-                </tr>
-                <tr>
-                    <td>Vitamin C</td>
-                    <td>
-                        3 grams
-                    </td>
-                </tr>
+                
 
 
             </table>
@@ -125,75 +88,7 @@
         <div class="container c-s">
             <h2>Similar Recipes</h2>
                 <div class="card-container">
-                    <div class="card">
-                        <img src="./assets/img/pie.jpg" alt="" class="recipe-img">
-                        <div class="card-header">
-                            <h4>Apple Pie</h4>
-                            <span class="likes">
-                                <img src="./assets/img/heart.png" alt="" class="like">
-                                567
-                            </span>
-                        </div>
-                        <h5>40mins</h5> 
-                        <a href ="" class="read">
-                            Read
-                        </a> 
-                        <a href ="" class="read save">
-                            Save
-                        </a>
-                        
-                    </div>
-                    <div class="card">
-                        <img src="./assets/img/pie.jpg" alt="" class="recipe-img">
-                        <div class="card-header">
-                            <h4>Apple Pie</h4>
-                            <span class="likes">
-                                <img src="./assets/img/heart.png" alt="" class="like">
-                                567
-                            </span>
-                        </div>
-                        <h5>40mins</h5>  
-                        <a href ="" class="read">
-                            Read
-                        </a> 
-                        <a href ="" class="read save">
-                            Save
-                        </a>
-                    </div>
-                    <div class="card">
-                        <img src="./assets/img/pie.jpg" alt="" class="recipe-img">
-                        <div class="card-header">
-                            <h4>Apple Pie</h4>
-                            <span class="likes">
-                                <img src="./assets/img/heart.png" alt="" class="like">
-                                567
-                            </span>
-                        </div>
-                        <h5>40mins</h5>  
-                        <a href ="" class="read">
-                            Read
-                        </a> 
-                        <a href ="" class="read save">
-                            Save
-                        </a>
-                    </div>
-                    <div class="card">
-                        <img src="./assets/img/pie.jpg" alt="" class="recipe-img">
-                        <div class="card-header">
-                            <h4>Apple Pie</h4>
-                            <span class="likes">
-                                <img src="./assets/img/heart.png" alt="" class="like">
-                                567
-                            </span>
-                        </div>
-                        <h5>40mins</h5>  
-                        <a href ="" class="read">
-                            Read
-                        </a> 
-                        <a href ="" class="read save">
-                            Save
-                        </a>
-                    </div>
+                    <div id="card-after" class="hide"></div>
                     
                 </div>
       
@@ -202,7 +97,9 @@
         
     </section>
     <!--Scripts-->
-    <script src="./assets/js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="./api-calls/recipe.js"></script>
+    
 </body>
 
 </html>
