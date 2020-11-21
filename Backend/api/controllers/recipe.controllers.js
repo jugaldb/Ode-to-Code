@@ -74,13 +74,15 @@ const getInfo = async (req, res) => {
 	const response = await axios.get(
 		`https://api.spoonacular.com/recipes/${recipeId}/information?includeNutrition=true&apiKey=${SPOONACULAR_API_KEY}`
   );
-  const header = req.header("Authorization");
-  const split = header.split(" ");
-  const token = split[1]
   let userDetails;
-  if(token){
-    const verified = JWT.verify(token, process.env.JWT_Secret);
-    userDetails = verified;
+  const header = req.header("Authorization");
+  if(header){
+    const split = header.split(" ");
+    const token = split[1]
+    if(token){
+      const verified = JWT.verify(token, process.env.JWT_Secret);
+      userDetails = verified;
+    }
   }
   console.log(userDetails)
   let isSaved = false;
