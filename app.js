@@ -14,6 +14,8 @@ const app = express();
 app.use(morgan('combined'))
 
 const userRoutes = require("./Backend/api/routes/user.routes");
+const recipeRoutes = require("./Backend/api/routes/recipe.routes");
+
 
 const MONGODB_URL = process.env.MONGODB_URL;
 
@@ -63,6 +65,7 @@ app.use((req, res, next) => {
 app.use(cors());
 
 app.use("/user", userRoutes);
+app.use("/recipe", recipeRoutes);
 
 app.get("/", async (req, res) => {
 	res.send("hi");
