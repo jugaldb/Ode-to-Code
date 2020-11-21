@@ -11,7 +11,7 @@ const userSchema = mongoose.Schema({
 	recipes: [
 		{
       recipeId: String,
-      likes: String,
+      likes: Number,
 			name: String,
 			image: String,
 		},
