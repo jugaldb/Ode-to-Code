@@ -75,6 +75,17 @@ const getInfo = async (req, res) => {
 	res.status(200).json(response.data);
 }
 
+const randomRecipes = async(req,res) => {
+
+	const response = await axios.get(
+			`https://api.spoonacular.com/recipes/random?number=5&tags=vegetarian&apiKey=${SPOONACULAR_API_KEY2}`
+
+		);
+	res.status(200).json(response.data);
+
+};
+
+
 module.exports = {
 	ingredients,
   nutrition,
@@ -82,4 +93,6 @@ module.exports = {
   similarRecipes,
   getInfo,
   instructions,
+  randomRecipes
+	
 };
