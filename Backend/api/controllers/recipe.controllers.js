@@ -3,9 +3,10 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
 const sgMail = require("@sendgrid/mail");
-const jwt = require("jsonwebtoken");
+const JWT = require("jsonwebtoken");
 const User = require("../models/user");
 const axios = require("axios");
+const { isDeepStrictEqual } = require("util");
 // const emailTemplates = require('../emails/email');
 
 sgMail.setApiKey(process.env.SendgridAPIKey);
@@ -60,7 +61,7 @@ const similarRecipes = async (req, res) => {
 };
 
 const instructions = async (req, res) => {
-  const { recipeId } = req.body;
+	const { recipeId } = req.body;
 	const response = await axios.get(
 		`https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions?apiKey=${SPOONACULAR_API_KEY5}`
 	);
@@ -68,52 +69,88 @@ const instructions = async (req, res) => {
 };
 
 const getInfo = async (req, res) => {
-  const { recipeId } = req.body;
+	const { recipeId } = req.body;
 	const response = await axios.get(
 		`https://api.spoonacular.com/recipes/${recipeId}/information?includeNutrition=true&apiKey=${SPOONACULAR_API_KEY}`
-	);
+  );
+  const header = req.header("Authorization");
+  const split = header.split(" ");
+  const token = split[1]
+  let userDetails;
+  if(token){
+    const verified = JWT.verify(token, process.env.JWT_Secret);
+    userDetails = verified;
+  }
+  const isSaved = false;
+  const isLoggedIn = false;
+  if(userDetails){
+    const data = await checkSaved(recipeId, userDetails)
+    isSaved = data.isSaved;
+    isLoggedIn = data.isLoggedIn
+  }
+  response.data.isSaved = isSaved
+  response.data.isLoggedIn = isLoggedIn
 	res.status(200).json(response.data);
-}
-
-const randomRecipes = async(req,res) => {
-
-	const response = await axios.get(
-			`https://api.spoonacular.com/recipes/random?number=5&tags=vegetarian&apiKey=${SPOONACULAR_API_KEY2}`
-
-		);
-	res.status(200).json(response.data);
-
 };
 
-const checkSaved = async(req,res) => {
+const randomRecipes = async (req, res) => {
+	const response = await axios.get(
+		`https://api.spoonacular.com/recipes/random?number=5&tags=vegetarian&apiKey=${SPOONACULAR_API_KEY2}`
+	);
+	res.status(200).json(response.data);
+};
 
-	const userId = req.user.userId;
+const saveRecipe = async (req, res) => {
+	const { recipeId, name, image, likes } = req.body;
+	const user = await User.findById(req.user.userId);
+	user.recipes.push({
+		recipeId,
+		name,
+		image,
+		likes,
+	});
+	await user
+		.save()
+		.then((result) => {
+      res.status(200).json(result)
+    })
+		.catch((err) => {
+      res.status(400).json({
+        error: err.toString()
+      })
+    });
+};
+
+const checkSaved = async (recipeId, userDetails) => {
+  if(userDetails){
+    return {
+      isSaved: false, 
+      isLoggedIn: false
+    }
+  }
+	const userId = userDetails.userId;
 	const user = await User.findById(userId);
-	let isSaved=false;
+	let isSaved = false;
 	const recipes = user.recipes;
-	const {recipeId} = req.body;
-
-	for(let i=0; i<recipes.length; i++){
-
-		if(recipes[i].recipeId == recipeId){
+	for (let i = 0; i < recipes.length; i++) {
+		if (recipes[i].recipeId == recipeId) {
 			isSaved = true;
 			break;
 		}
 	}
-
-	return isSaved;
-	
-}
-
-
+	return {
+    isSaved, 
+    isLoggedIn: true
+  };
+};
 
 module.exports = {
 	ingredients,
-  nutrition,
-  name,
-  similarRecipes,
+	nutrition,
+	name,
+	similarRecipes,
   getInfo,
-  instructions,
-  randomRecipes
-	
+  saveRecipe,
+	instructions,
+	randomRecipes,
 };

@@ -10,10 +10,10 @@ const userSchema = mongoose.Schema({
 	},
 	recipes: [
 		{
-			nutrients: [],
-			ingredients: [],
-			name: { type: String },
-			image: { type: String },
+      recipeId: String,
+      likes: String,
+			name: String,
+			image: String,
 		},
 	],
 	password: { type: String },
