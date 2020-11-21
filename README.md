@@ -18,10 +18,10 @@ We’ve all faced this in our lives – the conundrum of choice as for what to p
 ## What it does
 
 The services offered by Foodalicious: 
-•	Allows to search for appropriate recipes either by ingredients or the dish name itself
-•	Suggests random recipes for new users 
-•	Recommends similar recipes based on the user preferences
-•	Gives detailed information about the recipe including: nutritional value, missing ingredients, preparation time and the popularity of the dish among other users (number of likes)  
+* Allows to search for appropriate recipes either by ingredients or the dish name itself
+*	Suggests random recipes for new users 
+*	Recommends similar recipes based on the user preferences
+*	Gives detailed information about the recipe including: nutritional value, missing ingredients, preparation time and the popularity of the dish among other users (number of likes)  
 
 ## How we built it
 Foodalicious was built with Node.js and used the Spoonacular API to fetch the required data. The user data is stored in MongoDb. The frontend of the website was created using HTML, CSS and Javascript. 
