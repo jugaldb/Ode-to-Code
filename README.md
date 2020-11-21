@@ -1,5 +1,6 @@
 # Foodalicious
 Have you ever spent hours wondering what to cook for dinner? Well, Foodalicious is here to the rescue.
+<br>
 Foodalicious helps you look for recipes based on the ingredients you have on hand. It also allows you to assess the nutritional value of the dishes and suggests recipes that you might like based on your previous choices.  
 <p align="center">
 <a href="https://foodalicious.jugaldb.com/">
