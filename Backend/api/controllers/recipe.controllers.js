@@ -19,7 +19,7 @@ const SPOONACULAR_API_KEY4 = process.env.SPOONACULAR_API_KEY4;
 const SPOONACULAR_API_KEY5 = process.env.SPOONACULAR_API_KEY5;
 
 const ingredients = async (req, res, next) => {
-	const { ingredients } = req.body;
+	const { ingredients } = req.params;
 	// console.log(ingredients);
 	// let ingredientString = "";
 
