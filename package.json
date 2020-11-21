@@ -21,6 +21,7 @@
   "homepage": "https://github.com/jugaldb/Ode-to-Code#readme",
   "dependencies": {
     "@sendgrid/mail": "^7.4.0",
+    "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
