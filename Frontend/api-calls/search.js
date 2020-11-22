@@ -52,7 +52,7 @@ if (searchType == 'Ingredient') {
                 let current=data[i];
                 let card=`<div class="search-c">
                 <div class="sc-f">
-                    <img src="${current.image} alt="" class="search-img">
+                    <img src="${current.image}" alt="" class="search-img">
                     <span>
                         <h4> ${current.title}</h4>
                        
