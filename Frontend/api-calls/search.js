@@ -1,3 +1,21 @@
+
+
+let token= sessionStorage.getItem("authToken");   
+if(token){
+    $('.login-btn').addClass('hide');
+    $('.logout-btn').removeClass('hide');
+    $('.profile-btn').removeClass('hide');
+    $('.register-btn').addClass('hide');
+}
+else{
+    $('.login-btn').removeClass('hide');
+    $('.logout-btn').addClass('hide');
+    $('.profile-btn').addClass('hide');
+    $('.register-btn').removeClass('hide');
+}
+
+
+
 $('.search-submit').click(function(){
     let type=$('#search-type option:selected').text();
     sessionStorage.setItem("searchType", type);
@@ -205,7 +223,7 @@ else if(searchType=='Recipe'){
                 let current=data.results[i];
                 let card=`<div class="search-c">
                 <div class="sc-f">
-                    <img src="${current.image} alt="" class="search-img">
+                    <img class="search-img"  src="${current.image}" >
                     <span>
                         <h4> ${current.title}</h4>
                        
@@ -238,3 +256,6 @@ else if(searchType=='Recipe'){
 
 
 }
+$('.logout-btn').click(function(){
+    localStorage.removeItem("authToken");
+})

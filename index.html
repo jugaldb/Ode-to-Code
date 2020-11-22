@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
@@ -11,23 +15,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <!--Custom CSS-->
     <link rel="stylesheet" href="./Frontend/assets/css/styles.css">
-    <title>recipely</title>
+    <title>foodalicious</title>
 </head>
 
 <body>
     <div class="nav-super">
         <nav class="navbar">
-           <a class="logo" href="./index.html">
+            <a class="logo" href="./index.html">
                 foodalicious
             </a>
             <ul>
-                <li class="list-item">
+                <li class="list-item login-btn">
                     <a href="./Frontend/login.html">Login</a>
                 </li>
-                <li class="list-item">
+                <li class="list-item register-btn">
                     <a href="./Frontend/register.html">Register</a>
                 </li>
-                
+                <li class="list-item logout-btn hide">
+                    <a href="">Logout</a>
+                </li>
+                <li class="list-item profile-btn hide">
+                    <a href="./Frontend/profile.html">Profile</a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -37,17 +46,17 @@
             <p>Your wait ends now!</p>
         </div>
         <div class="container form-search">
-                <form action="./Frontend/search.html" id="search" class="search">
-                    <input type="text" name="recipe" id="recipe" class="form-input">
-                    <select name="search-type" id="search-type" class="form-element ">
-                        <option value="recipe" class="form-element">Recipe</option>
-                        <option value="ingredient" class="form-element">Ingredient</option>
-                    </select>
-                    <a href="./Frontend/search.html" class="s-s-cover">
-                        <input type="submit" value="Search" class="form-element search-submit">
-                    </a>
-                 
-                </form>
+            <form action="./Frontend/search.html" id="search" class="search">
+                <input type="text" name="recipe" id="recipe" class="form-input">
+                <select name="search-type" id="search-type" class="form-element ">
+                    <option value="recipe" class="form-element">Recipe</option>
+                    <option value="ingredient" class="form-element">Ingredient</option>
+                </select>
+                <a href="./Frontend/search.html" class="s-s-cover">
+                    <input type="submit" value="Search" class="form-element search-submit">
+                </a>
+
+            </form>
         </div>
     </section>
     <section class="suggestions">
@@ -55,21 +64,30 @@
             <h2>Recommended recipes</h2>
 
 
-                <div class="card-container">
-                    <div id="card-after" class="hide"></div>
-                    
-                </div>
-      
-            
+            <div class="card-container">
+                <div id="card-after" class="hide"></div>
+
+            </div>
+
+
         </div>
-        
-    </section>
-    <section class="footer">
 
     </section>
-   
+    <section class="footer yellow">
+        <div class="footer-container">
+            <p> © Team Flexbox, 2020</p>
+
+            <a href="https://github.com/jugaldb/Ode-to-Code">
+                <img src="./Frontend/assets/img/icons8-github-48.png" alt="" class="github">
+            </a>
+
+
+        </div>
+    </section>
+
     <!--Scripts-->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="./Frontend/assets/js/index.js"></script>
     <script src="./Frontend/api-calls/index.js"></script>
 </body>

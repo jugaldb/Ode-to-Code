@@ -442,6 +442,21 @@ td, th{
     
 }
 #red{
-    color: read;
+    color: red;
     font-weight: 600;
+}
+.footer-container{
+    margin: 0;
+    padding: 0.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    
+}
+.fix{
+  position: absolute;
+  bottom: 0;
+}
+.footer{
+    width: 100%;
 }

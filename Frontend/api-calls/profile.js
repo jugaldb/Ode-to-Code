@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", handle);
 
 function handle() {
@@ -58,3 +60,7 @@ xhr.open("GET", "https://ode-to-code.herokuapp.com/user/me");
 
 
 }
+
+$('.logout-btn').click(function(){
+    localStorage.removeItem("authToken");
+})

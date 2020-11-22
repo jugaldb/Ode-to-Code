@@ -1,3 +1,19 @@
+let token = sessionStorage.getItem("authToken");
+if (token) {
+    $('.login-btn').addClass('hide');
+    $('.logout-btn').removeClass('hide');
+    $('.profile-btn').removeClass('hide');
+    $('.register-btn').addClass('hide');
+} else {
+    $('.login-btn').removeClass('hide');
+    $('.logout-btn').addClass('hide');
+    $('.profile-btn').addClass('hide');
+    $('.register-btn').removeClass('hide');
+}
+
+
+
+
 var recipeId = sessionStorage.getItem('recipeId');
 let datagl;
 
@@ -14,7 +30,7 @@ function handle() {
     xh.onload = function () {
         if (this.status == 200) {
             var data = JSON.parse(this.responseText);
-            datagl=data;
+            datagl = data;
             var ingredients = data.extendedIngredients;
             var nutrition = data.nutrition;
             $('.expand-recipe-img').attr('src', data.image)
@@ -48,19 +64,21 @@ function handle() {
 
 
             $('.orange-btn').click(function (e) {
-                e.preventDefault();
-                
-                obj = {
-                    "recipeId": datagl.id,
-                    "image": datagl.image,
-                    "likes": datagl.aggregateLikes,
-                    "name": datagl.title
-                }
-                console.log(obj)
-                var data = JSON.stringify(obj);
+                if (token) {
+                    e.preventDefault();
+
+
+                    obj = {
+                        "recipeId": datagl.id,
+                        "image": datagl.image,
+                        "likes": datagl.aggregateLikes,
+                        "name": datagl.title
+                    }
+                    console.log(obj)
+                    var data = JSON.stringify(obj);
                     var xhr = new XMLHttpRequest;
-                    
-                xhr.open("POST", "https://ode-to-code.herokuapp.com/recipe/save");
+
+                    xhr.open("POST", "https://ode-to-code.herokuapp.com/recipe/save");
 
                     xhr.setRequestHeader('Content-Type', 'application/json');
                     let token = sessionStorage.getItem('authToken');
@@ -71,12 +89,17 @@ function handle() {
                             console.log('saved recipe to user')
                         }
                     }
-                })
-            }
+                }
+            })
+
         }
-
-
-     
-      
-        
     }
+
+
+
+
+
+}
+$('.logout-btn').click(function(){
+    localStorage.removeItem("authToken");
+})

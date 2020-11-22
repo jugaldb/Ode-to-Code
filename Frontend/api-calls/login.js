@@ -1,6 +1,5 @@
 
 $('.orange-btn').click(function(e){
- 
     obj={
     "email": $('#email').val(),
     "password": $('#password').val()
@@ -11,19 +10,14 @@ $('.orange-btn').click(function(e){
         console.log('response ', response);
         console.log('status ',status)
         let authToken=response.token;
-        sessionStorage.setItem("authToken", authToken);
-    
-        
+        sessionStorage.setItem("authToken", authToken);        
         if(status=='success'){
             $('#red').html('Logged in.')
             /*Redirect to search page*/
         }
         else if(status='error'){
             $('#red').html('Error :(')
-        }
-        
-        
+        }    
       });
-   
 })
 
