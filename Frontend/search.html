@@ -48,10 +48,7 @@
     <section>
         <div class="container c-search">
             <div class="chips-container">
-                <div class="chip">Apple <i class="fas fa-times"></i></div>
-                <div class="chip">Banana <i class="fas fa-times"></i></div>
-                <div class="chip">Milk <i class="fas fa-times"></i></div>
-                <div class="chip">Bacon <i class="fas fa-times"></i></div>
+                <div id="chip" class="hide"></div>
             </div>
         </div>
 
@@ -61,84 +58,15 @@
 
 
             <h2>Search Results</h2>
-            <div class="search-c">
-                <div class="sc-f">
-                    <img src="./assets/img/pie.jpg" alt="" class="search-img">
-                    <span>
-                        <h4>Apple Pie</h4>
-                        <h5>40mins</h5>
-                    </span>
-                </div>
-                <div class="sc-l">
-                    <span class="likes">
-                        <img src="./assets/img/heart.png" alt="" class="like">
-                        567
-                    </span>
-                    <a href="" class="read">
-                        Read
-                    </a>
-                </div>
-            </div>
-            <div class="search-c">
-                <div class="sc-f">
-                    <img src="./assets/img/pie.jpg" alt="" class="search-img">
-                    <span>
-                        <h4>Apple Pie</h4>
-                        <h5>40mins</h5>
-                    </span>
-                </div>
-                <div class="sc-l">
-                    <span class="likes">
-                        <img src="./assets/img/heart.png" alt="" class="like">
-                        567
-                    </span>
-                    <a href="" class="read">
-                        Read
-                    </a>
-                </div>
-            </div>
-            <div class="search-c">
-                <div class="sc-f">
-                    <img src="./assets/img/pie.jpg" alt="" class="search-img">
-                    <span>
-                        <h4>Apple Pie</h4>
-                        <h5>40mins</h5>
-                    </span>
-                </div>
-                <div class="sc-l">
-                    <span class="likes">
-                        <img src="./assets/img/heart.png" alt="" class="like">
-                        567
-                    </span>
-                    <a href="" class="read">
-                        Read
-                    </a>
-                </div>
-            </div>
-            <div class="search-c">
-                <div class="sc-f">
-                    <img src="./assets/img/pie.jpg" alt="" class="search-img">
-                    <span>
-                        <h4>Apple Pie</h4>
-                        <h5>40mins</h5>
-                    </span>
-                </div>
-                <div class="sc-l">
-                    <span class="likes">
-                        <img src="./assets/img/heart.png" alt="" class="like">
-                        567
-                    </span>
-                    <a href="" class="read">
-                        Read
-                    </a>
-
-                </div>
-
-            </div>
+            <div id="card-after" class="hide"></div>
+            
+            
         </div>
     </section>
     <!--Scripts-->
-    <script src="./assets/js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <script src="./api-calls/search.js"></script>
 </body>
 
 </html>

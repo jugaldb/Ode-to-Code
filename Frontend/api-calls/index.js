@@ -1,8 +1,17 @@
-document.addEventListener("DOMContentLoaded", handle);
+/*const { $where } = require("../../Backend/api/models/user");*/
+$('.search-submit').click(function(e){
 
+    let type=$('#search-type option:selected').text();
+    sessionStorage.setItem("searchType", type);
+    let searchString=$('.form-input').val();
+    sessionStorage.setItem("searchStr", searchString);
+})
+
+/*
+document.addEventListener("DOMContentLoaded", handle);
 function handle(){
     var xh = new XMLHttpRequest;
-    /*
+    
     xh.open("GET", "https://ode-to-code.herokuapp.com/recipe/random", true);
     xh.setRequestHeader("Content-Type", "application/json");
     xh.send();
@@ -28,7 +37,7 @@ function handle(){
                 </a>
                     <span class="hide element-id">${e.id}</span>
             </div>`
-            */
+            
            
 
              
@@ -55,3 +64,4 @@ function handle(){
         }
     }
 }
+*/

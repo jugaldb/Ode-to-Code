@@ -15,7 +15,7 @@ function handle(){
             var ingredients=data.extendedIngredients;
             var nutrition=data.nutrition;
             $('.recipe-h1').html(data.title);
-            $('#like').html(data.aggregateLikes);
+            $('#like').html(data.likes);
             $('.recipe-time').html(`${data.cookingMinutes} mins`);
             for(var i=0; i<ingredients.length; i++){
                 var current=ingredients[i];
@@ -57,7 +57,7 @@ function handle(){
             {
                 let e=data[i];
                 var card=`<div class="card">
-                <img src="" alt="" class="recipe-img">
+                <img src="${e.image}" alt="" class="recipe-img">
                 <div class="card-header">
                     <h4>${e.title}</h4>
                     

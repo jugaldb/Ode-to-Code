@@ -172,6 +172,10 @@ input[type=submit]  {
     width: 150px;
     background-color: #ff9642;
     border-radius: 0 5px 5px 0;
+   
+}
+.s-s-cover .search-submit{
+    height: 100%;
 }
 
 select {
@@ -405,6 +409,7 @@ table{
 td, th{
     padding: 0.5rem 0;
 }
+
 @media (max-width: 992px){
     .card{
         min-width: 250px;
@@ -435,4 +440,8 @@ td, th{
         padding: 1rem 10vw 5vh 10vw;
     }
     
+}
+#red{
+    color: read;
+    font-weight: 600;
 }
