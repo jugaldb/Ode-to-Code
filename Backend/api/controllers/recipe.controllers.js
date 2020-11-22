@@ -7,7 +7,7 @@ const JWT = require("jsonwebtoken");
 const User = require("../models/user");
 const axios = require("axios");
 const { isDeepStrictEqual } = require("util");
-const user = require("../models/user");
+// const user = require("../models/user");
 // const emailTemplates = require('../emails/email');
 
 sgMail.setApiKey(process.env.SendgridAPIKey);
@@ -54,21 +54,20 @@ const name = async (req, res) => {
 };
 
 const similarRecipes = async (req, res) => {
-  const recipeId = req.params.recipeId;
-  console.log(recipeId)
+	const recipeId = req.params.recipeId;
+	console.log(recipeId);
 	const response = await axios.get(
 		`https://api.spoonacular.com/recipes/${recipeId}/similar?apiKey=${SPOONACULAR_API_KEY4}&number=5`
-  );
-  for(let recipe of response.data){
-    console.log(recipe)
-    const response1 = await axios.get(
-      `https://api.spoonacular.com/recipes/${recipe.id}/information?includeNutrition=true&apiKey=${SPOONACULAR_API_KEY}`
-    )
-    // console.log(response1)
-    recipe.likes = response1.data.aggregateLikes
-    recipe.image = response1.data.image
-
-  }
+	);
+	for (let recipe of response.data) {
+		console.log(recipe);
+		const response1 = await axios.get(
+			`https://api.spoonacular.com/recipes/${recipe.id}/information?includeNutrition=true&apiKey=${SPOONACULAR_API_KEY}`
+		);
+		// console.log(response1)
+		recipe.likes = response1.data.aggregateLikes;
+		recipe.image = response1.data.image;
+	}
 	res.status(200).json(response.data);
 };
 
@@ -83,29 +82,59 @@ const instructions = async (req, res) => {
 const getInfo = async (req, res) => {
 	const { recipeId } = req.params;
 	const response = await axios.get(
-		`https://api.spoonacular.com/recipes/${recipeId}/information?includeNutrition=true&apiKey=${SPOONACULAR_API_KEY}`
-  );
-  let userDetails;
-  const header = req.header("Authorization");
-  if(header){
-    const split = header.split(" ");
-    const token = split[1]
-    if(token){
-      const verified = JWT.verify(token, process.env.JWT_Secret);
-      userDetails = verified;
-    }
-  }
-  console.log(userDetails)
-  let isSaved = false;
-  let isLoggedIn = false;
-  if(userDetails){
-    const data = await checkSaved(recipeId, userDetails)
-    console.log(data)
-    isSaved = data.isSaved;
-    isLoggedIn = data.isLoggedIn
-  }
-  response.data.isSaved = isSaved
-  response.data.isLoggedIn = isLoggedIn
+	  `https://api.spoonacular.com/recipes/${recipeId}/information?includeNutrition=true&apiKey=${SPOONACULAR_API_KEY}`
+	);
+	let userDetails;
+	const header = req.header("Authorization");
+	if (header) {
+		const split = header.split(" ");
+		const token = split[1];
+		if (token) {
+			const verified = JWT.verify(token, process.env.JWT_Secret);
+			userDetails = verified;
+		}
+	}
+	// console.log(userDetails)
+	let isSaved = false;
+	let isLoggedIn = false;
+	if (!userDetails) {
+		isSaved = false;
+		isLoggedIn = false;
+	}
+	if (userDetails) {
+		console.log(userDetails);
+		console.log(recipeId);
+		const userId = userDetails.userId;
+		console.log(userId);
+		await User.findById(userId)
+			.then((user) => {
+				console.log(user);
+				// let isSaved = false;
+				const recipes = user.recipes;
+				console.log(recipes);
+				for (let i = 0; i < recipes.length; i++) {
+					console.log(recipes[i].recipeId);
+					if (recipes[i].recipeId == recipeId) {
+						isSaved = true;
+					}
+				}
+				console.log(isSaved);
+				if (isSaved) {
+					return "asdasdas";
+				} else {
+					return "ada";
+				}
+			})
+			.catch((e) => {
+				console.log(e.toString());
+			});
+		// const data = await checkSaved(recipeId, userDetails);
+    console.log(isSaved);
+		// isSaved = data;
+		isLoggedIn = true;
+	}
+	response.data.isSaved = isSaved;
+	response.data.isLoggedIn = isLoggedIn;
 	res.status(200).json(response.data);
 };
 
@@ -128,36 +157,43 @@ const saveRecipe = async (req, res) => {
 	await user
 		.save()
 		.then((result) => {
-      res.status(200).json(result)
-    })
+			res.status(200).json(result);
+		})
 		.catch((err) => {
-      res.status(400).json({
-        error: err.toString()
-      })
-    });
+			res.status(400).json({
+				error: err.toString(),
+			});
+		});
 };
 
 const checkSaved = async (recipeId, userDetails) => {
-  if(!userDetails){
-    return {
-      isSaved: false, 
-      isLoggedIn: false
-    }
-  }
-	const userId = userDetails.userId;
-	const user = await User.findById(userId);
 	let isSaved = false;
-	const recipes = user.recipes;
-	for (let i = 0; i < recipes.length; i++) {
-		if (recipes[i].recipeId == recipeId) {
-			isSaved = true;
-			break;
-		}
-	}
-	return {
-    isSaved, 
-    isLoggedIn: true
-  };
+	console.log(userDetails);
+	console.log(recipeId);
+	const userId = userDetails.userId;
+	console.log(userId);
+	await User.findById(userId)
+		.then((user) => {
+			console.log(user);
+			// let isSaved = false;
+			const recipes = user.recipes;
+			console.log(recipes);
+			for (let i = 0; i < recipes.length; i++) {
+				console.log(recipes[i].recipeId);
+				if (recipes[i].recipeId == recipeId) {
+					isSaved = true;
+				}
+			}
+			console.log(isSaved);
+			if (isSaved) {
+				return "asdasdas";
+			} else {
+				return "ada";
+			}
+		})
+		.catch((e) => {
+			console.log(e.toString());
+		});
 };
 
 module.exports = {
@@ -165,8 +201,8 @@ module.exports = {
 	nutrition,
 	name,
 	similarRecipes,
-  getInfo,
-  saveRecipe,
+	getInfo,
+	saveRecipe,
 	instructions,
 	randomRecipes,
 };
