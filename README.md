@@ -25,17 +25,17 @@ The services offered by Foodalicious:
 *	Gives detailed information about the recipe including: nutritional value, missing ingredients, preparation time and the popularity of the dish among other users (number of likes)  
 
 ## How we built it
-Foodalicious was built with Node.js and used the Spoonacular API to fetch the required data. The user data is stored in MongoDb. The frontend of the website was created using HTML, CSS and Javascript. 
+Foodalicious was built with Node.js and used the Spoonacular API to fetch the required data. The user data is stored in MongoDb. The frontend of the website was created using HTML, CSS and Javascript. We also came up with our own Machine Learning Model which takes the user's previously saved recipes into account and suggests similar recipes for the future, it also gives similar recipes when the user tries to read one recipe.
 
 ## Challenges we ran into
-
+Designing the ML model was a bit tough and to make it work dynamically everytime with new data was a challenge too. Spooncular API has it's own downsides as well, to overcome them was a big task.
 
 
 ## Accomplishments that we're proud of.
-We were able to come up with a fully functional website within a day and a half. This website might actually help people to solve this frequent problem and aid their decision-making process. 
+We were able to come up with a fully functional website within a day and a half. This website might actually help people to solve this frequent problem and aid their decision-making process. Once our ML model started working as we expected it to work, we were really happy and satisfied. To overcome the spoonacular API loopholes while making the wrapper API smaller was a tedious task as well. 
 
 ## What we learned
-We mainly learned to use the Spoonacular API 
+We mainly learned to use the Spoonacular API and how to deploy ML model which takes the info and parses it quickly.
 
 ## Steps to run 
 ```bash
@@ -46,6 +46,17 @@ $ add the .env file in root of the project
 $ npm run dev/npm start
 ```
 
+## Contents of the .env file
+```
+  MONGODB_URL= <DATABASE URI>
+  JWT_Secret=  <JWT SECRET for user auth>
+  SPOONACULAR_API_KEY=  <API key to access SPONNACULAR API>
+  SPOONACULAR_API_KEY2= <API key to access SPONNACULAR API>
+  SPOONACULAR_API_KEY3= <API key to access SPONNACULAR API>
+  SPOONACULAR_API_KEY4= <API key to access SPONNACULAR API>
+  SPOONACULAR_API_KEY5= <API key to access SPONNACULAR API>
+```
+
 ## Useful Links
 - [Foodalicious Website]( https://foodalicious.jugaldb.com/)
 - [Demo Video]()
@@ -53,6 +64,7 @@ $ npm run dev/npm start
 ## Requirements
 -  [x] NodeJs (or https://nodejs.org/en/)
 -  [x] Npm
+-  [x] Python Interpreter
 -  [x] Internet :P 
 
 
