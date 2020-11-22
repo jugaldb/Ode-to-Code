@@ -7,7 +7,7 @@ $('.search-submit').click(function(e){
     sessionStorage.setItem("searchStr", searchString);
 })
 
-/*
+
 document.addEventListener("DOMContentLoaded", handle);
 function handle(){
     var xh = new XMLHttpRequest;
@@ -64,4 +64,3 @@ function handle(){
         }
     }
 }
-*/

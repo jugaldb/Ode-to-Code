@@ -1,6 +1,6 @@
 
 $('.orange-btn').click(function(e){
-    e.preventDefault();
+ 
     obj={
     "email": $('#email').val(),
     "password": $('#password').val()
@@ -8,6 +8,11 @@ $('.orange-btn').click(function(e){
     console.log(obj)
     var data = JSON.stringify(obj); 
     $.post("https://ode-to-code.herokuapp.com/user/login",obj, function(response, status){
+        console.log('response ', response);
+        console.log('status ',status)
+        let authToken=response.token;
+        sessionStorage.setItem("authToken", authToken);
+    
         
         if(status=='success'){
             $('#red').html('Logged in.')
